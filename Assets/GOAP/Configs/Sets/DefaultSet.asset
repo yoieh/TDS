@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539bc3388ee5fe4418e66a11759478e5, type: 3}
+  m_Name: DefaultSet
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: c194128f463ae6a48a5f1920dade0662, type: 2}
+  - {fileID: 11400000, guid: be57d207f70d4c544ad84e272929b477, type: 2}
+  - {fileID: 11400000, guid: adb10d05815e2414999d1d4c4973a7a6, type: 2}
+  - {fileID: 11400000, guid: 391725dd2b25c824da17fe06a34f1153, type: 2}
+  - {fileID: 11400000, guid: fe823327153ee79418e35d916778941a, type: 2}
+  - {fileID: 11400000, guid: cd7fac68b3f16e04d825046ce9649a78, type: 2}
+  - {fileID: 11400000, guid: 23643260956ae414d8541b86a2918e0f, type: 2}
+  goals:
+  - {fileID: 11400000, guid: e465036b753fef049af6f9ec41564fa4, type: 2}
+  - {fileID: 11400000, guid: 9cc87a1f640f24340968e56f5de74c0f, type: 2}
+  - {fileID: 11400000, guid: 40ef4f97f4a0b444885078bc1bb77c9f, type: 2}
+  - {fileID: 11400000, guid: 06830891eb5d16f4aacf86d5ea510752, type: 2}
+  targetSensors:
+  - {fileID: 11400000, guid: 128c3120ba32bb54db84dcd4c67b1a15, type: 2}
+  - {fileID: 11400000, guid: 3c240e647713187459a56b7f748d4cde, type: 2}
+  - {fileID: 11400000, guid: a48e9548c85eee04fa5d62c83aadccf2, type: 2}
+  - {fileID: 11400000, guid: ad187a452f4939246a12bfd76e22dc5a, type: 2}
+  - {fileID: 11400000, guid: 2e0bde469d8354b46a60f0a38d33f716, type: 2}
+  worldSensors:
+  - {fileID: 11400000, guid: 71a0673e69475384a8f84ab34b76b71a, type: 2}
+  - {fileID: 11400000, guid: 0e6b8e8bb1283cd4393d0d0132c8cc36, type: 2}
+  - {fileID: 11400000, guid: c85346e8d9f04bc41b94a98ab7abec55, type: 2}
+  - {fileID: 11400000, guid: 3b5204689263da2419fecb0ebfa3d8e7, type: 2}
+  - {fileID: 11400000, guid: 2298be20e833f214f8f3ca01c20210d6, type: 2}
+  - {fileID: 11400000, guid: d8cb9413fd2f7a34b80d0f90b559130f, type: 2}
+  - {fileID: 11400000, guid: 2a7c096bacc7bef4094275639910047e, type: 2}
+  - {fileID: 11400000, guid: bcb7d9a46155c4e43acede947cb7178d, type: 2}
+  - {fileID: 11400000, guid: 219268b22dbd2be45ab07d8a5f6264a2, type: 2}
+  debuggerClass: 
