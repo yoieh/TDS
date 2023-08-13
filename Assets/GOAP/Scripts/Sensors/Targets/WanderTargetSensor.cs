@@ -32,6 +32,7 @@ namespace TDS.GOAP.Sensors.Targets
             var position = agent.transform.position + (Vector3)random;
 
             //TODO: check if target is reachable...
+            Debug.Log($"WanderTargetSensor: {agent.name} is wandering to {position}");
 
             return position;
         }

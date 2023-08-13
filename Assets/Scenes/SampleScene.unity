@@ -1606,8 +1606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2343bebce5f03d1439d45fe4862df4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goapSet: {fileID: 0}
-  spawnAmount: 1
+  goapSet: {fileID: 797020743}
+  spawnAmount: 10
   agentPrefab: {fileID: 4841266417652087650, guid: 2504fbcb5b18b134e86e41463ab20c0b, type: 3}
 --- !u!1001 &863824015
 PrefabInstance:
@@ -3150,5 +3150,5 @@ SceneRoots:
   - {fileID: 75356453}
   - {fileID: 797020744}
   - {fileID: 1281176893}
-  - {fileID: 861133056}
   - {fileID: 1072402028}
+  - {fileID: 861133056}

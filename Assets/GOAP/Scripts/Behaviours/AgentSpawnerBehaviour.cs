@@ -28,20 +28,24 @@ namespace TDS.GOAP.Behaviours
         {
             for (var i = 0; i < this.spawnAmount; i++)
             {
-                this.SpawnAgent();
-                Debug.Log($"Spawned agent {i}");
+                this.SpawnAgent($"NPC agent {i}");
             }
         }
 
-        private void SpawnAgent()
+        private void SpawnAgent(string name)
         {
             GameObject go = Instantiate(this.agentPrefab, this.GetRandomPosition(), Quaternion.identity);
+            go.name = name;
+            go.transform.parent = this.transform;
 
             AgentBehaviour agent = go.GetComponent<AgentBehaviour>();
             agent.goapSetBehaviour = this.goapSet;
 
 
             go.SetActive(true);
+
+            Debug.Log($"Spawned {name} at {go.transform.position}");
+
         }
 
         private Vector3 GetRandomPosition()

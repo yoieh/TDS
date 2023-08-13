@@ -1,5 +1,6 @@
 using CrashKonijn.Goap.Behaviours;
 using CrashKonijn.Goap.Interfaces;
+using CrashKonijn.Goap.Resolver.Interfaces;
 using TDS.GOAP.Behaviours;
 using TDS.GOAP.Goals;
 using UnityEngine;
@@ -19,54 +20,41 @@ namespace TDS.GOAP.Agents
 
         private void OnEnable()
         {
-            // this.agent.Events.OnActionStop += this.OnActionStop;
+            this.agent.Events.OnActionStop += this.OnActionStop;
             this.agent.Events.OnNoActionFound += this.OnNoActionFound;
             this.agent.Events.OnGoalCompleted += this.OnGoalCompleted;
         }
 
         private void OnDisable()
         {
-            // this.agent.Events.OnActionStop -= this.OnActionStop;
+            this.agent.Events.OnActionStop -= this.OnActionStop;
             this.agent.Events.OnNoActionFound -= this.OnNoActionFound;
             this.agent.Events.OnGoalCompleted -= this.OnGoalCompleted;
         }
 
         private void Start()
         {
-            this.agent.SetGoal<WanderGoal>(false);
+            this.agent.SetGoal<WanderGoal>(true);
         }
 
         private void OnNoActionFound(IGoalBase goal)
         {
-            // this.agent.SetGoal<WanderGoal>(false);
+            this.agent.SetGoal<WanderGoal>(false);
         }
 
         private void OnGoalCompleted(IGoalBase goal)
         {
-            // this.agent.SetGoal<WanderGoal>(false);
-            this.UpdateHunger();
+            this.agent.SetGoal<WanderGoal>(false);
         }
 
 
-        private void Update()
+        private void OnActionStop(IAction action)
         {
             this.UpdateHunger();
-
-            if (this.agent.CurrentGoal is FixHungerGoal)
-                return;
-
-            // this.agent.SetGoal<WanderGoal>(true);
-
         }
 
         private void UpdateHunger()
         {
-            Debug.Log("UpdateHunger"
-                + " hunger: " + this.health.hunger
-                + " thirst: " + this.health.thirst
-                + " blood: " + this.health.blood
-                + " bleeding: " + this.health.bleeding);
-
             if (this.health.bleeding > 0f)
             {
                 this.agent.SetGoal<FixBleedingGoal>(false);
@@ -85,11 +73,10 @@ namespace TDS.GOAP.Agents
                 return;
             }
 
-            if (this.agent.CurrentGoal is not FixHungerGoal)
-                return;
-
             if (this.health.hunger < 20f || this.health.thirst < 20f || this.health.blood < 10f)
+            {
                 this.agent.SetGoal<WanderGoal>(true);
+            }
         }
 
     }
