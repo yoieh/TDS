@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TDS.GOAP.Behaviours
 {
-    public class FoodBehaviour : ItemBehaviour
+    public class FoodBehaviour : BaseItemBehaviour
     {
         public float nutritionValue = 50f;
 

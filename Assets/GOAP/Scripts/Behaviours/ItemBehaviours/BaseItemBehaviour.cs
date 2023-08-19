@@ -3,10 +3,11 @@ using UnityEngine;
 
 namespace TDS.GOAP.Behaviours
 {
-    public class ItemBehaviour : MonoBehaviour
+    public class BaseItemBehaviour : MonoBehaviour
     {
         public ItemType itemType;
 
+        [field: SerializeField]
         public bool IsPickedUp { get; private set; }
 
         private ItemCollection itemCollection;

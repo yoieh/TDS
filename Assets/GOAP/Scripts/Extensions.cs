@@ -17,7 +17,7 @@ namespace DTS.GOAP
 
     public static class Extensions
     {
-        public static ItemBehaviour Closest(this IEnumerable<ItemBehaviour> items, Vector3 position, ItemType itemType)
+        public static BaseItemBehaviour Closest(this IEnumerable<BaseItemBehaviour> items, Vector3 position, ItemType itemType)
         {
             return items
                 .OrderBy(x => Vector3.Distance(x.transform.position, position))
@@ -30,7 +30,7 @@ namespace DTS.GOAP
         {
             return items
                 .OrderBy(x => Vector3.Distance(x.transform.position, position))
-                .Where(x => x.GetComponent<ItemBehaviour>().itemType == itemType)
+                .Where(x => x.GetComponent<BaseItemBehaviour>().itemType == itemType)
                 .FirstOrDefault();
         }
     }

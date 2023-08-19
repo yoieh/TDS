@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TDS.GOAP.Behaviours
 {
-    public class BandageBehaviour : ItemBehaviour
+    public class BandageBehaviour : BaseItemBehaviour
     {
         public float healingValue = 50f;
 

@@ -32,7 +32,7 @@ namespace TDS.GOAP.Actions
             }
 
 
-            if (!transformTarget.Transform.TryGetComponent<ItemBehaviour>(out var item))
+            if (!transformTarget.Transform.TryGetComponent<BaseItemBehaviour>(out var item))
             {
                 Debug.Log("ItemBehaviour not found on target " + agent.gameObject);
                 return ActionRunState.Stop;

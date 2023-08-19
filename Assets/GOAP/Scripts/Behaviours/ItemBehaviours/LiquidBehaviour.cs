@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TDS.GOAP.Behaviours
 {
-    public class LiquidBehaviour : ItemBehaviour
+    public class LiquidBehaviour : BaseItemBehaviour
     {
         public float liquidValue = 50f;
 

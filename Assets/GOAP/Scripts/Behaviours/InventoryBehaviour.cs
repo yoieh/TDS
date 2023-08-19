@@ -8,18 +8,18 @@ namespace TDS.GOAP.Behaviours
 {
     public class InventoryBehaviour : MonoBehaviour
     {
-        private List<ItemBehaviour> items = new();
+        private List<BaseItemBehaviour> items = new();
 
         public void Add<T>(T item)
-            where T : ItemBehaviour
+            where T : BaseItemBehaviour
         {
             item.PickUp();
             this.items.Add(item);
         }
 
-        public T Drop<T>() where T : ItemBehaviour
+        public T Drop<T>() where T : BaseItemBehaviour
         {
-            ItemBehaviour item = this.items.FirstOrDefault(x => x is T);
+            BaseItemBehaviour item = this.items.FirstOrDefault(x => x is T);
 
             if (item == null)
                 return null;
@@ -31,7 +31,7 @@ namespace TDS.GOAP.Behaviours
         }
 
         public bool Has<T>()
-            where T : ItemBehaviour
+            where T : BaseItemBehaviour
         {
             return this.items.Any(x => x is T);
         }
@@ -42,7 +42,7 @@ namespace TDS.GOAP.Behaviours
         }
 
         public int Count<T>()
-            where T : ItemBehaviour
+            where T : BaseItemBehaviour
         {
             return this.items.Count(x => x is T);
         }
