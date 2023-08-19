@@ -9,6 +9,9 @@ namespace TDS.GOAP.Behaviours
 
         [field: SerializeField]
         public bool IsPickedUp { get; private set; }
+        
+        [field: SerializeField]
+        public bool IsClaimed { get; private set; }
 
         private ItemCollection itemCollection;
 
@@ -30,6 +33,11 @@ namespace TDS.GOAP.Behaviours
         private void OnDisable()
         {
             this.itemCollection.Remove(this);
+        }
+
+        public void Claim()
+        {
+            this.IsClaimed = true;
         }
 
         public void PickUp()
