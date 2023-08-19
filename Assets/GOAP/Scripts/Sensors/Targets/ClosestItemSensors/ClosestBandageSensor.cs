@@ -12,7 +12,7 @@ namespace TDS.GOAP.Sensors.Targets
     {
         public override ITarget Sense(IMonoAgent agent, IComponentReference references)
         {
-            var closestItem = this.items.All().Closest(agent.transform.position, ItemType.Bandage);
+            var closestItem = this.items.AllFiltered().Closest(agent.transform.position, ItemType.Bandage);
 
             if (closestItem == null)
                 return null;

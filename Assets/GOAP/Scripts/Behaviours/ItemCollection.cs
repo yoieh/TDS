@@ -8,43 +8,50 @@ namespace TDS.GOAP.Behaviours
 {
     public class ItemCollection : MonoBehaviour
     {
-        private readonly List<ItemBehaviour> items = new();
+        private readonly List<BaseItemBehaviour> items = new();
 
-        public void Add(ItemBehaviour item)
+        private bool IsAvailable(BaseItemBehaviour item) => !item.IsPickedUp || !item.IsClaimed;
+
+        public void Add(BaseItemBehaviour item)
         {
             this.items.Add(item);
         }
 
-        public void Remove(ItemBehaviour item)
+        public void Remove(BaseItemBehaviour item)
         {
             this.items.Remove(item);
         }
 
-        public ItemBehaviour[] All()
+        public BaseItemBehaviour[] All()
         {
             return this.items.ToArray();
         }
 
+        public BaseItemBehaviour[] AllFiltered()
+        {
+            return this.items.Where(IsAvailable).ToArray();
+        }
+
         public T[] Get<T>()
-            where T : ItemBehaviour
+            where T : BaseItemBehaviour
         {
             return this.items.Where(x => x is T).Cast<T>().ToArray();
         }
 
         public bool Any()
         {
-            return this.items.Any();
+            return this.items.Where(IsAvailable).Any();
         }
 
         public bool Any<t>()
-            where t : ItemBehaviour
+            where t : BaseItemBehaviour
         {
-            return this.items.Any(x => x is t);
+            return this.items.Where(IsAvailable).Any(x => x is t);
         }
 
         public bool Any(ItemType itemType)
         {
-            return this.items.Any(x => x.itemType == itemType);
+            return this.items.Where(IsAvailable).Any(x => x.itemType == itemType);
         }
     }
 }
