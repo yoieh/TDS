@@ -15,33 +15,41 @@ namespace TDS.GOAP.Actions
 
         public override void Start(IMonoAgent agent, Data data)
         {
+            if (data.Target is not TransformTarget transformTarget || transformTarget?.Transform == null)
+            {
+                return;
+            }
+
+            if (!transformTarget.Transform.TryGetComponent<BaseItemBehaviour>(out var item))
+            {
+                return;
+            }
+
+            if (item.IsPickedUp || item.IsClaimed)
+            {
+                Debug.Log("Item " + item.gameObject + " is already picked up or claimed " + agent.gameObject);
+                return;
+            }
+
+            item.Claim();
+            data.Item = item;
         }
 
         public override ActionRunState Perform(IMonoAgent agent, Data data, ActionContext context)
         {
-            if (data.Target is not TransformTarget transformTarget)
+            if (data.Target is not TransformTarget transformTarget || transformTarget?.Transform == null)
             {
-                Debug.Log("Target is not TransformTarget on target " + agent.gameObject);
                 return ActionRunState.Stop;
             }
-
-            if (transformTarget?.Transform == null)
-            {
-                Debug.Log("TransformTarget or Transform is null on target " + agent.gameObject);
-                return ActionRunState.Stop;
-            }
-
 
             if (!transformTarget.Transform.TryGetComponent<BaseItemBehaviour>(out var item))
             {
-                Debug.Log("ItemBehaviour not found on target " + agent.gameObject);
                 return ActionRunState.Stop;
             }
 
             // Prevent picking up same item
             if (item.IsPickedUp)
             {
-                Debug.Log("Item " + item.gameObject + " is already picked up " + agent.gameObject);
                 return ActionRunState.Stop;
             }
 
@@ -49,7 +57,6 @@ namespace TDS.GOAP.Actions
 
             if (inventory == null)
             {
-                Debug.Log("InventoryBehaviour not found on agent " + agent.gameObject);
                 return ActionRunState.Stop;
             }
 
@@ -65,6 +72,8 @@ namespace TDS.GOAP.Actions
         public class Data : IActionData
         {
             public ITarget Target { get; set; }
+
+            public BaseItemBehaviour Item { get; set; }
         }
     }
 }
