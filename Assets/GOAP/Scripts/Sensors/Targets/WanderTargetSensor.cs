@@ -1,7 +1,10 @@
 using CrashKonijn.Goap.Classes;
 using CrashKonijn.Goap.Interfaces;
 using CrashKonijn.Goap.Sensors;
+using Unity.Mathematics;
 using UnityEngine;
+
+using Random = UnityEngine.Random;
 
 namespace TDS.GOAP.Sensors.Targets
 {
@@ -32,9 +35,13 @@ namespace TDS.GOAP.Sensors.Targets
             var position = agent.transform.position + (Vector3)random;
 
             //TODO: check if target is reachable...
-            Debug.Log($"WanderTargetSensor: {agent.name} is wandering to {position}");
 
-            return position;
+            return new float3
+            {
+                x = position.x,
+                y = position.y,
+                z = .0f
+            };
         }
     }
 }

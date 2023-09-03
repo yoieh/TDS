@@ -10,7 +10,7 @@ namespace TDS.GOAP.Behaviours
     {
         private readonly List<BaseItemBehaviour> items = new();
 
-        private bool IsAvailable(BaseItemBehaviour item) => !item.IsPickedUp || !item.IsClaimed;
+        private bool IsAvailable(BaseItemBehaviour item) => !item.IsPickedUp && !item.IsClaimed;
 
         public void Add(BaseItemBehaviour item)
         {

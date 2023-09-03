@@ -27,7 +27,7 @@ namespace TDS.GOAP.Actions
 
             if (item.IsPickedUp || item.IsClaimed)
             {
-                Debug.Log("Item " + item.gameObject + " is already picked up or claimed " + agent.gameObject);
+                // TODO: Find a new item
                 return;
             }
 
